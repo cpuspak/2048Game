@@ -32,6 +32,7 @@ function initialiseGrid() {
     
     populateAnotherCell();
     populateAnotherCell();
+    curScore = 0;
     drawGrid();
 }
 

@@ -1,0 +1,17 @@
+#root {
+    width: 400px;
+    height: 400px;
+    background-color: black;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#root div {
+    width: 90px;
+    height: 90px;
+    background-color: yellow;
+    text-align: center;
+    font-size: 90px;
+    align-self: auto;
+    margin : 5px;
+}

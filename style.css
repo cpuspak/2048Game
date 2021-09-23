@@ -1,7 +1,7 @@
 #root {
     width: 400px;
     height: 400px;
-    background-color: black;
+    background-color: rgb(238, 176, 219);
     display: flex;
     flex-wrap: wrap;
 }
@@ -9,9 +9,50 @@
 #root div {
     width: 90px;
     height: 90px;
-    background-color: yellow;
     text-align: center;
-    font-size: 90px;
+    color: white;
     align-self: auto;
     margin : 5px;
+}
+.two {
+    background-color: yellow;
+    font-size: 90px;
+}
+
+.four {
+    background-color: yellowgreen;
+    font-size: 90px;
+}
+
+.eight {
+    background-color: green;
+    font-size: 90px;
+}
+
+.sixteen {
+    background-color: #056650;
+    font-size: 90px;
+}
+
+.thirtytwo {
+    background-color: #053050;
+    font-size: 90px;
+}
+
+.sixtyfour {
+    background-color: #903090;
+    font-size: 90px;
+}
+
+.onetwentyeight {
+    background-color: #900090;
+    font-size: 50px;
+}
+
+#currentScore {
+    font-size: 50px;
+}
+
+#highestScore {
+    font-size: 50px;
 }

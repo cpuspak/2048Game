@@ -176,14 +176,37 @@ function drawGrid() {
     for (let i = 0 ; i < 4 ; i++){
         for (let j = 0 ; j < 4 ; j++){
             square = document.createElement('div');
-            square.innerHTML = grid[i][j];
+            switch(grid[i][j]){
+                case 2:
+                    square.className += 'two';
+                    break;
+                case 4:
+                    square.className += 'four';
+                    break;
+                case 8:
+                    square.className += 'eight';
+                    break;
+                case 16:
+                    square.className += 'sixteen';
+                    break;
+                case 32:
+                    square.className += 'thirtytwo';
+                    break;
+                case 64:
+                    square.className += 'sixtyfour';
+                    break;
+                case 128:
+                    square.className += 'onetwentyeight';
+                    break;
+            }
+            if (grid[i][j] != 0) square.innerHTML = grid[i][j];
             gridDisplay.appendChild(square);
         }
     }
     var highestScore = document.querySelector('#highestScore');
-    highestScore.innerText = highScore;
+    highestScore.innerText = "High score : "+highScore;
     var currScore = document.querySelector('#currentScore');
-    currScore.innerText = curScore;
+    currScore.innerText = "Your score : "+curScore;
 }
 
 function winner(){
@@ -237,6 +260,7 @@ window.onload = function (){
         }
         
         if (winner() == 1){
+            drawGrid();
             alert("Congratulations!! You Won");
             if (curScore > highScore) highScore = curScore;
             initialiseGrid();

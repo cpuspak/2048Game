@@ -8,6 +8,9 @@ var grid = [
 var highScore = 0;
 var curScore = 0;
 
+var gameOverFlag = 0;
+var populateFlag = 0;
+
 
 function populateAnotherCell(){
     var cellsWithZero = [];
@@ -233,60 +236,89 @@ function winner(){
     return 0;
 }
 
+function restartGrid() {
+    initialiseGrid();
+    gameOverFlag = 0;
+    populateFlag = 0;
+}
+
 window.onload = function (){
     initialiseGrid();
-    var gameOverFlag = 0;
-    var populateFlag = 0;
+    gameOverFlag = 0;
+    populateFlag = 0;
 
     
     document.onkeyup =function keyUp(e) {
-        var currKey=0,e=e||event;
-        currKey=e.keyCode||e.which||e.charCode;
-        var keyName = String.fromCharCode(currKey);
-        switch (currKey){
-            case 37:
-                if (movementPossible(-1,0) == 1) populateFlag = 1;
-                gameOverFlag = adjustGridAfterMovement(0);
-                if (populateFlag == 1 && gameOverFlag == 0) populateAnotherCell();
-                populateFlag = 0;
+        if (gameOverFlag != 1 && winner() != 1){
+            var currKey=0,e=e||event;
+            currKey=e.keyCode||e.which||e.charCode;
+            var keyName = String.fromCharCode(currKey);
+            switch (currKey){
+                case 37:
+                    if (movementPossible(-1,0) == 1) populateFlag = 1;
+                    gameOverFlag = adjustGridAfterMovement(0);
+                    if (populateFlag == 1 && gameOverFlag == 0) populateAnotherCell();
+                    populateFlag = 0;
+                    drawGrid();
+                    break;
+                case 38:
+                    if (movementPossible(0,-1) == 1) populateFlag = 1;
+                    gameOverFlag = adjustGridAfterMovement(1);
+                    if (populateFlag == 1 && gameOverFlag == 0) populateAnotherCell();
+                    populateFlag = 0;
+                    drawGrid();
+                    break;
+                case 39:
+                    if (movementPossible(1,0) == 1) populateFlag = 1;
+                    gameOverFlag = adjustGridAfterMovement(2);
+                    if (populateFlag == 1 && gameOverFlag == 0) populateAnotherCell();
+                    populateFlag = 0;
+                    drawGrid();
+                    break;
+                case 40:
+                    if (movementPossible(0,1) == 1) populateFlag = 1;
+                    gameOverFlag = adjustGridAfterMovement(3);
+                    if (populateFlag == 1 && gameOverFlag == 0) populateAnotherCell();
+                    populateFlag = 0;
+                    drawGrid();
+                    break;
+            }
+            
+            if (winner() == 1){
                 drawGrid();
-                break;
-            case 38:
-                if (movementPossible(0,-1) == 1) populateFlag = 1;
-                gameOverFlag = adjustGridAfterMovement(1);
-                if (populateFlag == 1 && gameOverFlag == 0) populateAnotherCell();
-                populateFlag = 0;
-                drawGrid();
-                break;
-            case 39:
-                if (movementPossible(1,0) == 1) populateFlag = 1;
-                gameOverFlag = adjustGridAfterMovement(2);
-                if (populateFlag == 1 && gameOverFlag == 0) populateAnotherCell();
-                populateFlag = 0;
-                drawGrid();
-                break;
-            case 40:
-                if (movementPossible(0,1) == 1) populateFlag = 1;
-                gameOverFlag = adjustGridAfterMovement(3);
-                if (populateFlag == 1 && gameOverFlag == 0) populateAnotherCell();
-                populateFlag = 0;
-                drawGrid();
-                break;
-        }
-        
-        if (winner() == 1){
-            drawGrid();
-            alert("Congratulations!! You Won");
-            if (curScore > highScore) highScore = curScore;
-            initialiseGrid();
-        }
-        else if (gameOverFlag == 1) {
-            alert("Game Over!!");
-            if (curScore > highScore) highScore = curScore;
-            initialiseGrid();
+                //alert("Congratulations!! You Won");
+                var popupText = "Congratulations!!"
+                if (curScore > highScore) {
+                    highScore = curScore;
+                    popupText += " You have a new high score : "+curScore;
+                } else {
+                    popupText += " Your score : "+curScore;
+                }
+                var popup = document.getElementById("popupText");
+                popup.innerText = popupText;
+                var link = document.getElementById("button");
+                link.click();
+                //initialiseGrid();
+            }
+            else if (gameOverFlag == 1) {
+                //alert("Game Over!!");
+                var popupText = "Game Over!!"
+                if (curScore > highScore) {
+                    highScore = curScore;
+                    popupText += " You have a new high score : "+curScore;
+                } else {
+                    popupText += " Your score : "+curScore;
+                }
+                var popup = document.getElementById("popupText");
+                popup.innerText = popupText;
+                var link = document.getElementById("button");
+                link.click();
+                //initialiseGrid();
+            }
         }
         
     }
 
+    
     
 }

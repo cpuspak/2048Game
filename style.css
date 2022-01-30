@@ -80,6 +80,7 @@
 #highestScore {
     font-size: 20px;
     text-align: center;
+    margin-bottom: 5vw;
 }
 
 .centeredComponent {
@@ -166,4 +167,18 @@
     .popup{
       width: 70%;
     }
+  }
+
+  .restartbutton {
+    font-size: 1em;
+    padding: 10px;
+    border: 2px solid #06D85F;
+    border-radius: 20px/50px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+    
+  }
+  .restartbutton:hover {
+    background: #06D85F;
   }

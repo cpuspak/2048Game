@@ -198,6 +198,21 @@ function drawGrid() {
                 case 128:
                     square.className += 'onetwentyeight';
                     break;
+                case 256:
+                    square.className += 'twofifitysix';
+                    break;
+                case 512:
+                    square.className += 'fivehundredtwelve';
+                    break;
+                case 1024:
+                    square.className += 'onethousandtwentyfour';
+                    break;
+                case 2048:
+                    square.className += 'twothousandfortyeight';
+                    break;
+                default:
+                    //do nothing 
+                    break;
             }
             if (grid[i][j] != 0) square.innerHTML = grid[i][j];
             gridDisplay.appendChild(square);
@@ -212,7 +227,7 @@ function drawGrid() {
 function winner(){
     for (let i = 0 ; i < 4 ; i++){
         for (let j = 0 ; j < 4 ; j++){
-            if (grid[i][j] == 128) return 1;
+            if (grid[i][j] == 2048) return 1;
         }
     }
     return 0;

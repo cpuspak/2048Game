@@ -1,9 +1,11 @@
 #root {
     width: 400px;
     height: 400px;
-    background-color: rgb(238, 176, 219);
     display: flex;
     flex-wrap: wrap;
+    box-shadow: 10px 10px 5px #777777;
+    background-color: rgb(68, 68, 223); /* For browsers that do not support gradients */
+    background-image: linear-gradient(to bottom right, rgb(81, 81, 255), black);
 }
 
 #root div {
@@ -78,6 +80,12 @@
 }
 
 .centeredComponent {
-    margin-left: 500px;
-    margin-top: 50px 
+    margin-left: 30vw;
+}
+
+.boxstyle:hover {
+    -webkit-box-shadow: 0 0 6px #777777;
+    box-shadow: 0 0 6px #777777;
+    transform: scale(1.05);
+    transition: transform .2s;
 }

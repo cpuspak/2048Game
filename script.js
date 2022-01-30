@@ -178,37 +178,37 @@ function drawGrid() {
             square = document.createElement('div');
             switch(grid[i][j]){
                 case 2:
-                    square.className += 'two';
+                    square.className += 'two boxstyle';
                     break;
                 case 4:
-                    square.className += 'four';
+                    square.className += 'four boxstyle';
                     break;
                 case 8:
-                    square.className += 'eight';
+                    square.className += 'eight boxstyle';
                     break;
                 case 16:
-                    square.className += 'sixteen';
+                    square.className += 'sixteen boxstyle';
                     break;
                 case 32:
-                    square.className += 'thirtytwo';
+                    square.className += 'thirtytwo boxstyle';
                     break;
                 case 64:
-                    square.className += 'sixtyfour';
+                    square.className += 'sixtyfour boxstyle';
                     break;
                 case 128:
-                    square.className += 'onetwentyeight';
+                    square.className += 'onetwentyeight boxstyle';
                     break;
                 case 256:
-                    square.className += 'twofifitysix';
+                    square.className += 'twofifitysix boxstyle';
                     break;
                 case 512:
-                    square.className += 'fivehundredtwelve';
+                    square.className += 'fivehundredtwelve boxstyle';
                     break;
                 case 1024:
-                    square.className += 'onethousandtwentyfour';
+                    square.className += 'onethousandtwentyfour boxstyle';
                     break;
                 case 2048:
-                    square.className += 'twothousandfortyeight';
+                    square.className += 'twothousandfortyeight boxstyle';
                     break;
                 default:
                     //do nothing 
